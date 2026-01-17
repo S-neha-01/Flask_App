@@ -1,45 +1,66 @@
 pipeline {
     agent any
-    
+
+    environment {
+        VENV = "venv"
+    }
+
     stages {
+
         stage('Checkout') {
             steps {
-                echo 'Checking out code from repository...'
-                checkout scm
+                git branch: 'main',
+                    url: 'https://github.com/S-neha-01/Flask_App.git'
             }
         }
-        
-        stage('Install Dependencies') {
+
+        stage('Build') {
             steps {
-                echo 'Installing Python dependencies...'
-                sh 'pip install -r requirements.txt'
+                sh '''
+                python3 -m venv $VENV
+                . $VENV/bin/activate
+                python -m pip install --upgrade pip
+                pip install -r requirements.txt
+                '''
             }
         }
-        
+
         stage('Test') {
             steps {
-                echo 'Running tests...'
-                sh 'python -m pytest tests/ || true'
+                sh '''
+                . $VENV/bin/activate
+                pytest -v
+                '''
             }
         }
-        
+
         stage('Deploy') {
             steps {
-                echo 'Deploying Flask application...'
-                sh 'python app.py'
+                sh '''
+                pkill -f "python app.py" || true
+                . $VENV/bin/activate
+                nohup python app.py &
+                '''
             }
         }
     }
-    
+
     post {
-        always {
-            echo 'Pipeline execution completed!'
-        }
         success {
-            echo 'Deployment successful!'
+            echo 'Pipeline succeeded!'
+            emailext(
+                subject: "SUCCESS: Flask Jenkins Pipeline",
+                body: "Build succeeded: ${env.BUILD_URL}",
+                to: "snehamgupta0123@gmail.com"
+            )
         }
         failure {
-            echo 'Deployment failed!'
+            echo 'Pipeline failed!'
+            emailext(
+                subject: "FAILED: Flask Jenkins Pipeline",
+                body: "Build failed: ${env.BUILD_URL}",
+                to: "snehamgupta0123@gmail.com"
+            )
         }
     }
 }
