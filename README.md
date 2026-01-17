@@ -168,7 +168,7 @@ pipeline {
 
 - Payload URL:
 ```
-http://<EC2-PUBLIC-IP>:8080/github-webhook/
+http://13.52.117.209:8080/github-webhook/
 ```
 - Content type: `application/json`
 - Trigger event: Push
@@ -189,7 +189,9 @@ This enables automatic pipeline execution on every push.
 5. Unit tests executed
 6. Application deployed if tests pass
 
-   <img width="2542" height="1240" alt="image" src="https://github.com/user-attachments/assets/bd39b020-0a2b-4861-b8d2-13b9db02ca3f" />
+<img width="2500" height="1100" alt="image" src="https://github.com/user-attachments/assets/37844269-fd90-42a2-8c80-eee08a8e8586" />
+<img width="2542" height="1240" alt="image" src="https://github.com/user-attachments/assets/bd39b020-0a2b-4861-b8d2-13b9db02ca3f" />
+![Uploading image.png…]()
 
 
 
