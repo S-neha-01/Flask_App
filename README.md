@@ -1,6 +1,5 @@
 # Jenkins CI/CD Pipeline for Flask Application
 
-## Assignment Title
 **Implementation of CI/CD Pipeline for a Python Flask Application using Jenkins**
 
 ---
@@ -56,6 +55,7 @@ if __name__ == '__main__':
 ```
 
 ---
+<img width="2550" height="1532" alt="image" src="https://github.com/user-attachments/assets/530a4b38-bb06-4e14-b8b4-a5cd681b109c" />
 
 ## Step 2: Define Application Dependencies
 
@@ -159,7 +159,10 @@ pipeline {
 - Selected **Pipeline script**
 - Enabled **GitHub hook trigger for GITScm polling**
 
+<img width="2506" height="1510" alt="image" src="https://github.com/user-attachments/assets/b1b3f3be-f36a-4cc0-838c-cfba713a67aa" />
+
 ---
+
 
 ## Step 6: Configure GitHub Webhook
 
@@ -172,6 +175,9 @@ http://<EC2-PUBLIC-IP>:8080/github-webhook/
 
 This enables automatic pipeline execution on every push.
 
+<img width="2506" height="1418" alt="image" src="https://github.com/user-attachments/assets/0bf9cf47-2099-4fa4-97ff-50542d8ad251" />
+<img width="2560" height="1324" alt="image" src="https://github.com/user-attachments/assets/2fc22a42-0c9a-4643-8432-7713d5e28b08" />
+
 ---
 
 ## Step 7: Pipeline Execution Flow
@@ -183,24 +189,9 @@ This enables automatic pipeline execution on every push.
 5. Unit tests executed
 6. Application deployed if tests pass
 
----
+   <img width="2542" height="1240" alt="image" src="https://github.com/user-attachments/assets/bd39b020-0a2b-4861-b8d2-13b9db02ca3f" />
 
-## Screenshots (Evidence)
 
-### Jenkins Pipeline – Successful Build
-![Pipeline Success](Screenshot_2026-01-18_12.07.54_AM.png)
-
-### Jenkins Commit Detection
-![Pipeline Changes](Screenshot_2026-01-17_10.34.05_PM.png)
-
-### Deployed Flask Application
-![Flask Deployment](Screenshot_2026-01-18_12.08.10_AM.png)
-
-### GitHub Webhook Configuration
-![GitHub Webhook](Screenshot_2026-01-18_12.15.38_AM.png)
-
-### Jenkins Trigger Configuration
-![Jenkins Trigger](Screenshot_2026-01-18_12.11.35_AM.png)
 
 ---
 
